@@ -9,7 +9,7 @@ Created on 2020/6/17 6:55 下午
 import getopt
 import sys
 
-from jmpy.encrypt_py import start_encrypt
+from jmcode.encrypt_py import start_encrypt
 
 
 def usage():
