@@ -24,6 +24,8 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 packages = setuptools.find_packages()
 cython_version = "Cython==3.3.0" if version_info >= (3, 11) else "Cython==0.29.20"
+# Python 3.6-3.10 uses the generic py3 wheel tag; Python 3.11+ uses py311.
+python_tag = "py311" if version_info >= (3, 11) else "py3"
 
 setuptools.setup(
     name="jmcode",
@@ -46,7 +48,7 @@ setuptools.setup(
     packages=packages,
     include_package_data=True,
     python_requires=">=3.0",
-    options={"bdist_wheel": {"python_tag": "py3", "plat_name": "any"}},
+    options={"bdist_wheel": {"python_tag": python_tag, "plat_name": "any"}},
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",

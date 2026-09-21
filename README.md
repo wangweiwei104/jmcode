@@ -8,6 +8,13 @@
 
 Git仓库地址: https://github.com/wangweiwei104/jmcode
 
+## 编译
+
+```
+python setup.py bdist_wheel -d dist
+```
+
+
 ## 安装
 
     pip install jmcode

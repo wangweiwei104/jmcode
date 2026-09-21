@@ -1,3 +1,4 @@
+import sys
 from pathlib import Path
 
 
@@ -13,3 +14,11 @@ def test_setup_metadata_and_entry_points():
     assert 'jmcode = jmcode.cmdline_jmpro:execute' in content
     assert 'jmcode.cmdline_cpsrc:execute' in content
     assert 'jmcode.cmdline_jmpro:execute' in content
+
+
+def test_wheel_python_tag_uses_python_311_boundary():
+    setup_py = Path(__file__).resolve().parents[1] / "setup.py"
+    content = setup_py.read_text(encoding="utf-8")
+
+    assert 'python_tag = "py311" if version_info >= (3, 11) else "py3"' in content
+    assert '"python_tag": python_tag' in content
