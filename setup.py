@@ -23,7 +23,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 packages = setuptools.find_packages()
-cython_version = "Cython==3.3.0" if version_info >= (3, 11) else "Cython==0.29.20"
+cython_version = "Cython>=3.3.0" if version_info >= (3, 11) else "Cython>=0.29.20"
 # Python 3.6-3.10 uses the generic py3 wheel tag; Python 3.11+ uses py311.
 python_tag = "py311" if version_info >= (3, 11) else "py3"
 
